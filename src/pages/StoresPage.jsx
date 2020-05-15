@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNav from '../components/MainNav';
+import MainNav from '../components/main-nav/MainNav';
 
 const StoresPage = (props) => {
   const pathname = props.location.pathname;

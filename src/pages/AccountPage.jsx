@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNav from '../components/MainNav';
+import MainNav from '../components/main-nav/MainNav';
 import SignIn from '../components/signin/SignIn';
 
 const AccountPage = (props) => {

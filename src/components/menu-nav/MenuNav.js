@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import './main-nav.css';
+import './menu-nav.scss';
 
 class MenuNav extends React.Component {
   constructor(props) {

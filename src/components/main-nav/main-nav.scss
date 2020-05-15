@@ -1,4 +1,3 @@
-// ===header style===
 // main navigation
 .main-nav {
   display: flex;
@@ -57,40 +56,3 @@
     }
   }
 }
-
-// menu navigation
-.menu-navbar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px 0;
-  background-color: gray;
-  &__item {
-    text-decoration: none;
-    color: white;
-    &--active {
-      color: orangered;
-      transition: color 0.3s ease-in-out;
-    }
-  }
-}
-
-// menu sub navigation
-.menu-sub-navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px 0;
-  background-color: orangered;
-  &__item {
-    text-decoration: none;
-    color: white;
-    margin: 3px 0;
-    &--active {
-      color: orangered;
-      transition: color 0.3s ease-in-out;
-    }
-  }
-}
-// ===End of header style===

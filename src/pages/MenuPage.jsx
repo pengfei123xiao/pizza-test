@@ -1,6 +1,6 @@
 import React from 'react';
-import MainNav from '../components/MainNav';
-import MenuNav from '../components/MenuNav';
+import MainNav from '../components/main-nav/MainNav';
+import MenuNav from '../components/menu-nav/MenuNav';
 
 const MenuPage = (props) => {
   console.log(props);
