@@ -1,0 +1,96 @@
+// ===header style===
+// main navigation
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+  &__left {
+    border: 1px solid orangered;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  &__right {
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  font-size: 1.25rem;
+  &__highlight {
+    color: orangered;
+  }
+}
+
+.main-navbar {
+  display: flex;
+  &__item {
+    text-decoration: none;
+    padding: 0 1rem;
+    color: #49515d;
+    font-size: 15px;
+    display: block; //为了后面加underline
+    opacity: 0.7; //与navbar__item--active呼应，active时为1
+    transition: opacity 0.3s ease-in-out;
+    &::after {
+      // add underlines for navbar
+      content: "";
+      width: 0; // hide underline
+      border-bottom: 2px solid orangered;
+      margin: auto;
+      margin-top: 3px;
+      display: block; // before/after默认都是inline，要改成block才能落到下一行
+      transition: width 0.3s ease-in-out;
+    }
+    &--active,
+    &:hover {
+      opacity: 1;
+      &::after {
+        // show underline after hover and active
+        width: 80%;
+      }
+    }
+    &:last-child {
+      // remove right padding for the last nav item
+      padding-right: 0;
+    }
+  }
+}
+
+// menu navigation
+.menu-navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 0;
+  background-color: gray;
+  &__item {
+    text-decoration: none;
+    color: white;
+    &--active {
+      color: orangered;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
+
+// menu sub navigation
+.menu-sub-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 0;
+  background-color: orangered;
+  &__item {
+    text-decoration: none;
+    color: white;
+    margin: 3px 0;
+    &--active {
+      color: orangered;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
+// ===End of header style===
