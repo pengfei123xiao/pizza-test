@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
 import './menu-nav.scss';
+import FOOD_DATA from './food-data';
 
 class MenuNav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      foods: FOOD_DATA
+    }
   }
 
   render () {
@@ -11,7 +15,9 @@ class MenuNav extends React.Component {
     if (hashtag.length === 0) {
       hashtag = '#PIZZAS';
     }
-    console.log(typeof hashtag)
+    // filter food type according to hashtag to determine whether or not showing the sub-menu
+    let filteredFood = this.state.foods.filter((food) => (food.routeName === hashtag));
+
     return (
       <Fragment>
         <header className="menu-nav">
@@ -23,15 +29,13 @@ class MenuNav extends React.Component {
             <a href="#DESSERTS" className={`menu-navbar__item ${hashtag === '#DESSERTS' ? "menu-navbar__item--active" : null}`}
             >DESSERTS</a>
           </nav>
-          <nav className="menu-sub-navbar">
-            <a href="#NEW_PRODUCTS" className="menu-sub-navbar__item">NEW PRODUCTS</a>
-            <a href="#NEW_YORK_RANGE" className="menu-sub-navbar__item">NEW YORK RANGE</a>
-            <a href="#PREMIUM_PIZZAS" className="menu-sub-navbar__item">PREMIUM PIZZAS</a>
-            <a href="#TRADITIONAL_PIZZAS" className="menu-sub-navbar__item">TRADITIONAL PIZZAS</a>
-            <a href="#VEGETARIAN_PIZZAS" className="menu-sub-navbar__item">VEGETARIAN PIZZAS</a>
-            <a href="#GLUTEN_FREE" className="menu-sub-navbar__item">GLUTEN FREE</a>
-            <a href="#DIY_PIZZAS" className="menu-sub-navbar__item">DIY PIZZAS</a>
-          </nav>
+          {filteredFood.length === 0 ? null : // if filteredFood has no items, return null
+            <nav className="menu-sub-navbar">
+              {filteredFood[0].items.map((item, idx) => (
+                // iterate over the items in the filteredFood
+                (<a href={item.href} className="menu-sub-navbar__item">{item.name}</a>)
+              ))}
+            </nav>}
         </header>
       </Fragment>
     )
